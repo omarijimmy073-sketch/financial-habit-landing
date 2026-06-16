@@ -1326,6 +1326,27 @@
 
     })();
   </script>
+  <!-- =============================================
+       AFFILIATE TRACKING SCRIPT
+  ============================================= -->
+  <script>
+    // Affiliate parameter handler – auto‑attaches affiliate ID to Selar links
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const affId = params.get('affiliate');
+      if (affId) {
+        document.querySelectorAll('a[href*="selar.com"]').forEach(function(link) {
+          if (!link.href.includes('affiliate=')) {
+            const separator = link.href.includes('?') ? '&' : '?';
+            link.href = link.href + separator + 'affiliate=' + affId;
+          }
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
 
 </body>
 </html>
